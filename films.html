@@ -1,0 +1,14 @@
+
+
+
+
+        <p> vos films preferes sont :</p>
+        <ol>
+            <li data-ng-repeat="film in films"> {{film}} </li>
+        </ol>
+
+        <input type="text" name="ajoutFilm" data-ng-model="ajoutFilm">
+
+        <button data-ng-click="ajouterFilm()"> Ajouter un film </button>
+
+

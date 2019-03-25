@@ -1,0 +1,11 @@
+
+        <p> vos jeux videos preferes sont :</p>
+        <ol>
+            <li data-ng-repeat="jeu in jeuxVideo"> {{jeu}} </li>
+        </ol>
+
+        <input type="text" name="ajoutJeu" data-ng-model="ajoutJeu">
+
+        <button data-ng-click="ajouterJeu()"> Ajouter un jeu </button>
+
+

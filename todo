@@ -1,0 +1,11 @@
+ng-app : permet d'indiquer a angular l'element html qui va contenir notre application
+
+ng-model : element html depuis lequel on recupere les donnees
+
+ng-bind : element html dans lequel on va inserer les données
+
+ng-init : Permet de specifier une ou plusieurs valeur par defaut a une variable, un model etc...
+
+$scope : défini une variable dans le template (ex : $scope.<variable>)
+
+ng-repeat : remplace une boucle js et place les elements en html

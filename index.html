@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <script src="angular-route.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <div data-ng-app="monAppli">
+
+    <a href="#!/films"> vos films préférés </a> <br>
+
+    <a href="#!/livres"> vos livres préférés </a> <br>
+
+    <a href="#!/jeuxvideos"> vos jeux videos préférés </a>
+
+
+
+    <div class="ng-view"> </div>
+
+</div>
+
+    <script src="script.js"></script>
 </body>
 </html>
