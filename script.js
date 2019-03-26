@@ -1,5 +1,7 @@
 var app = angular.module("monAppli", ["ngRoute"]);
 
+
+
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
@@ -35,10 +37,15 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
         $scope.films.push($scope.ajoutFilm);
 
+        var film = 'film';
+
         $http({
             method:"POST",
             url:"test.php",
-            data: {nouveauFilm : $scope.ajouterFilm}
+            data: "new="+$scope.ajoutFilm+"&type="+film,
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
         }).then(function Success(response) { alert(response.data); },
 
             function Error(response) { alert(response.statusText);
@@ -57,10 +64,15 @@ app.controller('livresControlleur', function ($scope,$http) {
 
         $scope.livres.push($scope.ajoutLivre);
 
+        var livre = 'livre';
+
         $http({
             method:"POST",
             url:"test.php",
-            data: {nouveauLivre : $scope.ajouterLivre}
+            data: "new="+$scope.ajoutLivre+"&type="+livre,
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
         }).then(function Success(response) { alert(response.data); },
 
             function Error(response) { alert(response.statusText);
@@ -77,13 +89,23 @@ app.controller('jeuxvideosControlleur', function ($scope,$http) {
 
     $scope.ajouterJeu = function () {
 
-        $scope.jeuxvideo.push($scope.ajoutJeu);
+        $scope.jeuxVideo.push($scope.ajoutJeu);
+
+        var jeux = 'jeux';
 
         $http({
             method:"POST",
             url:"test.php",
-            data: {nouveauJeu : $scope.ajouterJeu}
-        }).then(function Success(response) { alert(response.data); },
+            data:  "new="+$scope.ajoutJeu+"&type="+jeux,
+
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+        }).then(function Success(response) {
+
+            alert(response.data)
+            console.log(response.data);
+
+            $scope.recup = response.data },
 
             function Error(response) { alert(response.statusText);
 

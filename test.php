@@ -6,3 +6,35 @@
  * Time: 14:30
  */
 
+include 'log.php';
+
+
+$nom = $_REQUEST['new'];
+
+$type = $_REQUEST['type'];
+
+
+function add ($nom, $type) {
+
+    GLOBAL $conn;
+
+    $stmt = $conn -> prepare("INSERT INTO `angular` (`nom`,`type`) VALUE (?,?)");
+
+    $stmt -> bind_param("ss",$nom,$type);
+
+    $stmt -> execute();
+
+    $stmt -> close();
+
+}
+
+if(isset($type)) {
+
+    include 'affichage.php';
+
+}
+
+if(isset($nom, $type)) {
+
+    add($nom, $type);
+}
