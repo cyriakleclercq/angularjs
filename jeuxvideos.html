@@ -1,11 +1,15 @@
 
+
+<div id="list3" class="list">
         <p> vos jeux videos preferes sont :</p>
-        <ol>
+        <ol class="list">
             <li data-ng-repeat="jeu in jeuxVideo"> {{jeu.nom}} </li>
         </ol>
+</div>
+
+        <div class="input">
 
         <input type="text" name="ajoutJeu" data-ng-model="ajoutJeu">
-
         <button data-ng-click="ajouterJeu()"> Ajouter un jeu </button>
 
-
+        </div>

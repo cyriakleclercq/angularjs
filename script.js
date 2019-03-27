@@ -42,6 +42,8 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
     }).then(function Success(response) {
 
+
+
         let Objet = response.data;
 
         console.log(Objet);
@@ -67,8 +69,6 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
     $scope.ajouterFilm = function () {
 
-        $scope.films.push($scope.ajoutFilm);
-
         var film = 'film';
 
         $http({
@@ -80,7 +80,11 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
         }).then(function Success(response) {
 
-                $scope.films.push(name:$scope.ajoutFilm);
+                var add = {nom:$scope.ajoutFilm};
+
+                $scope.films.push(add);
+
+                console.log(add);
 
             },
 
@@ -91,18 +95,6 @@ app.controller('filmsControlleur', function ($scope,$http) {
     }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 app.controller('livresControlleur', function ($scope,$http) {
@@ -144,8 +136,6 @@ app.controller('livresControlleur', function ($scope,$http) {
 
     $scope.ajouterLivre = function () {
 
-        $scope.livres.push($scope.ajoutLivre);
-
         var livre = 'livre';
 
         $http({
@@ -155,7 +145,15 @@ app.controller('livresControlleur', function ($scope,$http) {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-        }).then(function Success(response) { },
+        }).then(function Success(response) {
+
+                var add = {nom:$scope.ajoutLivre};
+
+                $scope.livres.push(add);
+
+                console.log(add);
+
+            },
 
             function Error(response) { alert(response.statusText);
 
@@ -164,16 +162,6 @@ app.controller('livresControlleur', function ($scope,$http) {
     }
 
 });
-
-
-
-
-
-
-
-
-
-
 
 app.controller('jeuxvideosControlleur', function ($scope,$http) {
 
@@ -214,10 +202,6 @@ app.controller('jeuxvideosControlleur', function ($scope,$http) {
 
     $scope.ajouterJeu = function () {
 
-        $scope.jeuxVideo.push($scope.ajoutJeu);
-
-        console.log(table1);
-
         var jeux = 'jeux';
 
         $http({
@@ -228,6 +212,13 @@ app.controller('jeuxvideosControlleur', function ($scope,$http) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
         }).then(function Success(response) {
+
+                var add = {nom:$scope.ajoutJeu};
+
+                $scope.jeuxVideo.push(add);
+
+                console.log(add);
+
             },
 
             function Error(response) { alert(response.statusText);

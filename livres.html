@@ -1,15 +1,18 @@
 
 
 
-
+<div id="list2" class="list">
         <p> vos livres preferes sont :</p>
         <ol>
             <li data-ng-repeat="livre in livres"> {{livre.nom}} </li>
         </ol>
+</div>
+
+        <div class="input">
 
         <input type="text" name="ajoutLivre" data-ng-model="ajoutLivre">
-
         <button data-ng-click="ajouterLivre()"> Ajouter un livre </button>
 
+        </div>
 
 
