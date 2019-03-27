@@ -31,7 +31,39 @@ app.config(function($routeProvider) {
 
 app.controller('filmsControlleur', function ($scope,$http) {
 
-    $scope.films = ["The big Lebowsky","Fargo","O'Brother","The Barber"];
+    $scope.films = [];
+
+    $http({
+        method:"POST",
+        url:"affichage.php",
+        data:  "new="+$scope.ajoutJeu,
+
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).then(function Success(response) {
+
+        let Objet = response.data;
+
+        console.log(Objet);
+
+        var table = response.data;
+        var table2 = [];
+
+        console.log(table);
+
+        for (let i = 0; i < table.length; i++) {
+
+            if (table[i].type == 'film') {
+
+                table2.push(table[i]);
+
+            }
+        }
+        console.log(table2);
+
+        $scope.films = table2;
+
+    });
 
     $scope.ajouterFilm = function () {
 
@@ -46,7 +78,11 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-        }).then(function Success(response) { alert(response.data); },
+        }).then(function Success(response) {
+
+                $scope.films.push(name:$scope.ajoutFilm);
+
+            },
 
             function Error(response) { alert(response.statusText);
 
@@ -56,9 +92,55 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.controller('livresControlleur', function ($scope,$http) {
 
-    $scope.livres = ["Harry Potter","ADW","PUG","Le Hobbit"];
+    $scope.livres = [];
+
+    $http({
+        method:"POST",
+        url:"affichage.php",
+        data:  "new="+$scope.ajoutJeu,
+
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).then(function Success(response) {
+
+        let Objet = response.data;
+
+        console.log(Objet);
+
+        var table = response.data;
+        var table2 = [];
+
+        console.log(table);
+
+        for (let i = 0; i<table.length; i++) {
+
+            if (table[i].type == 'livre') {
+
+                table2.push(table[i]);
+
+            }
+        }
+        console.log(table2);
+
+        $scope.livres = table2;
+
+
+    });
 
     $scope.ajouterLivre = function () {
 
@@ -73,7 +155,7 @@ app.controller('livresControlleur', function ($scope,$http) {
 
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-        }).then(function Success(response) { alert(response.data); },
+        }).then(function Success(response) { },
 
             function Error(response) { alert(response.statusText);
 
@@ -83,13 +165,58 @@ app.controller('livresControlleur', function ($scope,$http) {
 
 });
 
+
+
+
+
+
+
+
+
+
+
 app.controller('jeuxvideosControlleur', function ($scope,$http) {
 
-    $scope.jeuxVideo = ["mass effect","adibou","fortnite","LOL"];
+    $scope.jeuxVideo = [];
+
+
+    $http({
+        method:"POST",
+        url:"affichage.php",
+        data:  "new="+$scope.ajoutJeu,
+
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).then(function Success(response) {
+
+        let Objet = response.data;
+
+        console.log(Objet);
+
+        var table = response.data;
+        var table2 = [];
+
+        console.log(table);
+
+        for (let i = 0; i<table.length; i++) {
+
+            if (table[i].type == 'jeux') {
+
+                table2.push(table[i]);
+
+            }
+        }
+        $scope.jeuxVideo = table2;
+
+
+    });
+
 
     $scope.ajouterJeu = function () {
 
         $scope.jeuxVideo.push($scope.ajoutJeu);
+
+        console.log(table1);
 
         var jeux = 'jeux';
 
@@ -101,11 +228,7 @@ app.controller('jeuxvideosControlleur', function ($scope,$http) {
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
         }).then(function Success(response) {
-
-            alert(response.data)
-            console.log(response.data);
-
-            $scope.recup = response.data },
+            },
 
             function Error(response) { alert(response.statusText);
 

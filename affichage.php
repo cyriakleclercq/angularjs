@@ -8,11 +8,11 @@
 
 include "log.php";
 
-function affichage ($type) {
+function affichage () {
 
     GLOBAL $conn;
 
-    $sql = "SELECT * FROM `angular` WHERE `type` = '$type'";
+    $sql = "SELECT * FROM `angular`";
 
 
 
@@ -35,4 +35,4 @@ function affichage ($type) {
 
 }
 
-affichage($type);
+affichage();

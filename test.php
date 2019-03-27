@@ -13,6 +13,8 @@ $nom = $_REQUEST['new'];
 
 $type = $_REQUEST['type'];
 
+var_dump($_REQUEST);
+
 
 function add ($nom, $type) {
 
@@ -28,13 +30,9 @@ function add ($nom, $type) {
 
 }
 
-if(isset($type)) {
-
-    include 'affichage.php';
-
-}
-
 if(isset($nom, $type)) {
 
     add($nom, $type);
 }
+
+
