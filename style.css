@@ -29,11 +29,19 @@
 
 #list3 {
 
-    align-items: flex-end;
-    margin-right: 11%;
+    align-items: flex-start;
+    margin-left: 82%;
 }
 
 .list {
     display: flex;
     flex-direction: column;
+}
+
+input {
+    border-radius: 15px;
+}
+
+button {
+    border-radius: 15px;
 }

@@ -23,6 +23,11 @@ app.config(function($routeProvider) {
             controller: "jeuxvideosControlleur"
         })
 
+        .when("/login", {
+            templateUrl: "login.html",
+            controller: "loginControlleur"
+        })
+
         .otherwise({
             redirectTo: '/index.html'
         })
@@ -46,12 +51,8 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
         let Objet = response.data;
 
-        console.log(Objet);
-
         var table = response.data;
         var table2 = [];
-
-        console.log(table);
 
         for (let i = 0; i < table.length; i++) {
 
@@ -61,7 +62,6 @@ app.controller('filmsControlleur', function ($scope,$http) {
 
             }
         }
-        console.log(table2);
 
         $scope.films = table2;
 
@@ -83,8 +83,6 @@ app.controller('filmsControlleur', function ($scope,$http) {
                 var add = {nom:$scope.ajoutFilm};
 
                 $scope.films.push(add);
-
-                console.log(add);
 
             },
 
@@ -226,5 +224,45 @@ app.controller('jeuxvideosControlleur', function ($scope,$http) {
             })
 
     }
+
+});
+
+app.controller('loginControlleur', function ($scope,$http) {
+
+    $scope.cheking = true;
+
+$scope.check_login = function () {
+
+    $http({
+        method:"POST",
+        url:"check_login.php",
+        data: "login="+$scope.login+"&password="+$scope.password,
+
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+    }).then(function Success(response) {
+
+        let Objet = response.data;
+
+        if (Objet.length > 72) {
+
+            $scope.check = 'validation';
+
+            $scope.cheking = false;
+
+
+        } else {
+
+            $scope.check = 'login incorrect';
+
+        }
+
+        },
+
+        function Error(response) { alert(response.statusText);
+
+        })
+
+}
 
 });

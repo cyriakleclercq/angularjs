@@ -14,11 +14,6 @@ function affichage () {
 
     $sql = "SELECT * FROM `angular`";
 
-
-
-        $connexion = $conn -> query($sql) ;
-
-
         $arr = array();
         $result = $conn->query($sql);
 

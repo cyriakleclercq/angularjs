@@ -13,8 +13,6 @@ $nom = $_REQUEST['new'];
 
 $type = $_REQUEST['type'];
 
-var_dump($_REQUEST);
-
 
 function add ($nom, $type) {
 
