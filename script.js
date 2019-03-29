@@ -244,11 +244,14 @@ $scope.check_login = function () {
 
         let Objet = response.data;
 
+        console.log(Objet);
+        console.log(Objet.length);
+
         if (Objet.length > 72) {
 
             $scope.check = 'validation';
 
-            $scope.cheking = false;
+         //   $scope.cheking = false;
 
 
         } else {
